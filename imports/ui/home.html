@@ -1,0 +1,45 @@
+<template name="HomePage">
+  <div class="ui container">
+    <div class="ui one column center aligned grid">
+      {{> loginButtons}}
+      {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
+      <a href="/admin">Admin</a>
+      {{else}}
+      <a href="/contact">Contact Me</a>
+      {{/if}}
+    </div>
+    <h1>Welcome to my blog!</h1>
+    {{#each posts}}
+    <h3>{{createdAt}}</h3>
+    <p>{{content}}</p>
+    <div class="ui grid">
+      <div class="ui cube shape">
+        <div class="sides">
+          <div class="active side">
+            <div class="center">
+              <p>Check out some photos!</p>
+            </div>
+          </div>
+      {{#each images}}
+        {{#if $eq metadata.createdAt ../createdAt}}
+        <div class="side">
+          <div class="content">
+            <div class="image">
+              <img src="{{this.url}}" alt="" class="thumbnail" />
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button class="ui button" id="left"><i class="long arrow left icon"></i></button>
+      <button class="ui button" id="right"><i class="long arrow right icon"></i></button>
+      <button class="ui button" id="up"><i class="long arrow up icon"></i></button>
+      <button class="ui button" id="down"><i class="long arrow down icon"></i></button>
+    </div>
+    {{/each}}
+  </div>
+</template>
