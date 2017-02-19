@@ -1,5 +1,5 @@
 var createThumb = (fileObj,readStream,writeStream)=>{
-  var size = '150';
+  var size = '175';
   gm(readStream).autoOrient().resize(size, size + '^').gravity('Center').extent(size, size).stream('PNG').pipe(writeStream);
 }
 
@@ -13,8 +13,14 @@ var Images = new FS.Collection("images", {
 });
 
 Images.allow({
-  'insert': function () {
+  insert: function () {
     // add custom authentication code here
+    return true;
+  },
+  update: function(){
+    return true;
+  },
+  download: function(){
     return true;
   }
 });

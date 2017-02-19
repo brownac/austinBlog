@@ -13,5 +13,34 @@
       </div>
       <button class="ui button" type="submit">Submit</button>
     </form>
+  {{> Contacts}}
   </div>
+</template>
+
+<template name="Contacts">
+  <h1>Contacts</h1>
+  <table class="ui green table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>E-Mail Address</th>
+        <th>Subject</th>
+        <th>Date Contacted</th>
+        <th>Reply</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each contacts}}
+        <tr>
+          <td>{{firstName}}</td>
+          <td>{{lastName}}</td>
+          <td>{{email}}</td>
+          <td>{{subject}}</td>
+          <td>{{createdAt}}</td>
+          <td><a href="mailto:{{email}}">Reply</a></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>
