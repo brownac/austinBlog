@@ -9,11 +9,17 @@ import './adminPage.html'
 Meteor.subscribe("posts");
 Meteor.subscribe("images");
 Meteor.subscribe("contacts");
+Meteor.subscribe("allUsers");
 
 Template.Contacts.helpers({
   contacts(){
     return Contacts.find();
   }
+});
+
+Template.AdminPage.helpers({
+  allUsers(){ return Meteor.users.find({}); },
+  email(){ return this.emails[0].address; }
 });
 
 Template.AdminPage.events({
@@ -36,5 +42,9 @@ Template.AdminPage.events({
         else { toastr.success("Image uploaded!", "Woo!"); }
       });
       //Meteor.call("uploadImage", file);
+  },
+
+  'click .ui.red.button'(){
+    Meteor.call("deleteContact", this._id)
   }
 });

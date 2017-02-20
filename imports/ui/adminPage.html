@@ -28,6 +28,7 @@
         <th>Subject</th>
         <th>Date Contacted</th>
         <th>Reply</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
           <td>{{subject}}</td>
           <td>{{createdAt}}</td>
           <td><a href="mailto:{{email}}">Reply</a></td>
+          <td><button class="ui red button">Delete</button></td>
         </tr>
       {{/each}}
     </tbody>

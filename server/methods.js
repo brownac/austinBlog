@@ -37,6 +37,9 @@ Meteor.methods({
       createdAt : today
     });
   },
+  deleteContact(id){
+    Contacts.remove(id);
+  },
   sendEmail(to, from, subject, text) {
 			Sparkpost.send({
 			from: from,

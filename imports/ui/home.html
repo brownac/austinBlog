@@ -5,7 +5,7 @@
       {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
       <a href="/admin">Admin</a>
       {{else}}
-      <a href="/contact">Contact Me</a>
+        {{#if currentUser}}<a href="/contact">Contact Me</a>{{/if}}
       {{/if}}
     </div>
     <h1>Welcome to my blog! Check out my main website <a href="http://austincbrown.com" target="_blank">here</a>.</h1>

@@ -20,3 +20,7 @@ Meteor.publish("images",()=>{
 Meteor.publish("contacts", ()=>{
   return Contacts.find();
 });
+
+Meteor.publish("allUsers", ()=>{
+  return Meteor.users.find({}, {fields : {emails : 1}});
+});
