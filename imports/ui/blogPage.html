@@ -8,7 +8,7 @@
       {{#each images}}
         {{#if $eq metadata.createdAt ../createdAt}}
           <div class="ui eight wide column">
-              <img src="{{this.url}}" alt="" class="thumbnail" />
+              <a href="{{this.url}}"><img src="{{this.url}}" alt="" class="thumbnail" /></a>
           </div>
         {{/if}}
       {{/each}}
