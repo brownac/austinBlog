@@ -1,0 +1,17 @@
+<template name="BlogPage">
+  <div class="ui container">
+    {{#each posts}}
+    <h1>{{createdAt}} - {{title}}</h1>
+    <p>{{content}}</p>
+    {{/each}}
+    <div class="ui grid">
+      {{#each images}}
+        {{#if $eq metadata.createdAt ../createdAt}}
+          <div class="ui eight wide column">
+              <img src="{{this.url}}" alt="" class="thumbnail" />
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+</template>

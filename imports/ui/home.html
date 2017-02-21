@@ -7,20 +7,11 @@
       {{else}}
         {{#if currentUser}}<a href="/contact">Contact Me</a>{{/if}}
       {{/if}}
+      <a href="/about">About this blog</a>
     </div>
     <h1>Welcome to my blog! Check out my main website <a href="http://austincbrown.com" target="_blank">here</a>.</h1>
     {{#each posts}}
-    <h3>{{createdAt}}</h3>
-    <p>{{content}}</p>
-    <div class="ui grid">
-      {{#each images}}
-        {{#if $eq metadata.createdAt ../createdAt}}
-          <div class="ui four wide column">
-              <img src="{{this.url}}" alt="" class="thumbnail" />
-          </div>
-        {{/if}}
-      {{/each}}
-        </div>
+    <h3><a href="/posts/{{_id}}">{{createdAt}} - {{title}}</a></h3>
     {{/each}}
   </div>
 </template>

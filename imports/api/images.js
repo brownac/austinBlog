@@ -1,5 +1,5 @@
 var createThumb = (fileObj,readStream,writeStream)=>{
-  var size = '175';
+  var size = '450';
   gm(readStream).autoOrient().resize(size, size + '^').gravity('Center').extent(size, size).stream('PNG').pipe(writeStream);
 }
 

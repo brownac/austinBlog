@@ -2,7 +2,9 @@
   <main class="ui grid">
     <div class="row">
       <div class="sixteen wide column">
-        {{> yield}}
+        {{#transition in="fadeInLeft:750" out="fadeOutRight:750"}}
+          {{> yield}}
+        {{/transition}}
       </div>
     </div>
   </main>

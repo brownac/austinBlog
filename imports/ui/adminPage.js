@@ -26,8 +26,10 @@ Template.AdminPage.events({
     'submit .ui.form'(event) {
         event.preventDefault();
         var post = $("#blog").val();
-        Meteor.call('createPost', post);
+        var title = $("#title").val();
+        Meteor.call('createPost', post, title);
         $("#blog").val("");
+        $("#title").val("");
     },
 
     'change #file'(event) {

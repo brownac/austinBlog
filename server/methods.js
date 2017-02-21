@@ -7,11 +7,12 @@ import Contacts from '../imports/api/contacts'
 
 
 Meteor.methods({
-  createPost(content) {
+  createPost(content, title) {
     var now = new Date();
     var today = moment(now).format('MM/DD/YYYY');
     Posts.insert({
       content : content,
+      title : title,
       createdAt : today
     });
   },
