@@ -1,0 +1,11 @@
+<template name="EditPage">
+  <div class="ui container">
+    {{#each posts}}
+      <h1>Editing {{title}}</h1>
+      <form class="ui form">
+        <textarea id="edit" rows="5">{{content}}</textarea>
+        <button class="ui submit button">Edit</button>
+      </form>
+    {{/each}}
+  </div>
+</template>

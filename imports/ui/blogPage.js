@@ -16,3 +16,9 @@ Template.BlogPage.helpers({
     return Images.find();
   }
 });
+
+Template.BlogPage.events({
+  'click .ui.red.button'(){
+    Meteor.call("deleteImage", this._id);
+  }
+})

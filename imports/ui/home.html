@@ -11,7 +11,26 @@
     </div>
     <h1>Welcome to my blog! Check out my main website <a href="http://austincbrown.com" target="_blank">here</a>.</h1>
     {{#each posts}}
-    <h3><a href="/posts/{{_id}}">{{createdAt}} - {{title}}</a></h3>
+    <div class="ui grid">
+      <div class="row">
+      <div class="ui eight wide column">
+        <h3><a href="/posts/{{_id}}">{{createdAt}} - {{title}}</a></h3>
+      </div>
+      {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
+      <div class="ui four wide column">
+        <a href="/edit/{{_id}}">Edit</a>
+      </div>
+      <div class="ui four wide column">
+        <div class="ui vertical red animated button" tabindex="0">
+          <div class="hidden content">Delete</div>
+          <div class="visible content">
+            <i class="trash outline icon"></i>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+  </div>
     {{/each}}
   </div>
 </template>

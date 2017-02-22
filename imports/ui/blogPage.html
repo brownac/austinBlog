@@ -9,6 +9,7 @@
         {{#if $eq metadata.createdAt ../createdAt}}
           <div class="ui eight wide column">
               <a href="{{this.url}}"><img src="{{this.url}}" alt="" class="thumbnail" /></a>
+              {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}<button class="ui red button">Delete</button>{{/if}}
           </div>
         {{/if}}
       {{/each}}

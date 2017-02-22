@@ -15,3 +15,9 @@ Template.HomePage.helpers({
      return Posts.find();
    }
 });
+
+Template.HomePage.events({
+  'click .ui.vertical.red.animated.button'(){
+    Meteor.call("deletePosts", this._id);
+  }
+});

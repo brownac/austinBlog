@@ -16,6 +16,13 @@ Meteor.methods({
       createdAt : today
     });
   },
+  editPost(id, text){
+    Posts.update(id, {
+      $set: {
+        content : text
+      }
+    });
+  },
   /**uploadImage(file){
       var today = new Date();
       var now = moment(today).format('MM/DD/YYYY');
@@ -40,6 +47,12 @@ Meteor.methods({
   },
   deleteContact(id){
     Contacts.remove(id);
+  },
+  deleteImage(id){
+    Images.remove(id);
+  },
+  deletePosts(id){
+    Posts.remove(id);
   },
   sendEmail(to, from, subject, text) {
 			Sparkpost.send({
