@@ -23,6 +23,20 @@ Meteor.methods({
       }
     });
   },
+  submitComment(id, text){
+    var now = new Date();
+    var today = moment(now).format('dddd, MMMM Do YYYY, h:mm a');
+    var user = Meteor.user().emails[0].address;
+    Posts.update(id, {
+      $push:{
+        comment:{
+          comment:text,
+          commenter:user,
+          commentedAt:today
+        }
+      }
+    });
+  },
   /**uploadImage(file){
       var today = new Date();
       var now = moment(today).format('MM/DD/YYYY');

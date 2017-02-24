@@ -20,5 +20,11 @@ Template.BlogPage.helpers({
 Template.BlogPage.events({
   'click .ui.red.button'(){
     Meteor.call("deleteImage", this._id);
+  },
+  'submit .ui.form'(event){
+    event.preventDefault();
+    let comment = $("#comment").val();
+    Meteor.call("submitComment", this._id, comment);
+    $("#comment").val("");
   }
 })

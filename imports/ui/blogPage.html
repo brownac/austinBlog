@@ -2,7 +2,7 @@
   <div class="ui container">
     {{#each posts}}
     <h1>{{createdAt}} - {{title}}</h1>
-    <p>{{content}}</p>
+    <pre><p>{{content}}</p></pre>
     {{/each}}
     <div class="ui grid">
       {{#each images}}
@@ -14,5 +14,16 @@
         {{/if}}
       {{/each}}
     </div>
+    <h3>Write a comment...</h3>
+    <form class="ui form">
+      <textarea id="comment" rows="3"></textarea>
+      <button class="ui submit button">Submit</button>
+    </form>
+    {{#each posts}}
+    {{#each comment}}
+      <h3>On {{commentedAt}}, {{commenter}} wrote:</h3>
+      <p>{{comment}}</p>
+    {{/each}}
+    {{/each}}
   </div>
 </template>
