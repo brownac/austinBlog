@@ -37,4 +37,3 @@ accounts-ui@1.1.9
 webtempest:animate
 cfs:filesystem
 webapp
-force-ssl
