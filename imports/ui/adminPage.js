@@ -50,3 +50,8 @@ Template.AdminPage.events({
     Meteor.call("deleteContact", this._id)
   }
 });
+
+Template.AdminPage.rendered = function(){
+  $('.ui.sidebar').sidebar('hide')
+  ;
+}

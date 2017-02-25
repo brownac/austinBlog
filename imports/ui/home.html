@@ -1,15 +1,13 @@
 <template name="HomePage">
   <div class="ui container">
+    <!-- SideBar -->
     <div class="ui one column center aligned grid">
       {{> loginButtons}}
-      {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
-      <a href="/admin">Admin</a>
-      {{else}}
-        {{#if currentUser}}<a href="/contact">Contact Me</a>{{/if}}
-      {{/if}}
-      <a href="/about">About this blog</a>
     </div>
     <h1>Welcome to my blog! Check out my main website <a href="http://austincbrown.com" target="_blank">here</a>.</h1>
+    {{#if $not currentUser}}
+      <p>Sign in or create an account above to leave comments or get in contact with me.</p>
+    {{/if}}
     {{#each posts}}
     <div class="ui grid">
       <div class="ui eight wide column">

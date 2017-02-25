@@ -21,3 +21,7 @@ Template.HomePage.events({
     Meteor.call("deletePosts", this._id);
   }
 });
+
+Template.HomePage.rendered = function(){
+    $('.ui.sidebar').sidebar('hide');
+}

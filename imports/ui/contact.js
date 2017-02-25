@@ -19,6 +19,7 @@ Template.ContactPage.events({
 });
 
 Template.ContactPage.rendered = () => {
+  $('.ui.sidebar').sidebar('hide');
   let email = Meteor.user().emails[0].address;
   $("#email").val(email);
   $('.ui.form')

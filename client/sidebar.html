@@ -1,0 +1,29 @@
+<template name="SideBar">
+  <div class="ui one column left aligned grid">
+    <button class="ui icon button">
+      <i class="list layout icon"></i>
+    </button>
+  </div>
+  <div class="ui left demo vertical inverted sidebar labeled icon menu">
+      <a class="item" href="/">
+        <i class="home icon"></i>
+        Home
+      </a>
+      <a class="item" href="/about">
+        <i class="block layout icon"></i>
+        About
+      </a>
+      {{#if currentUser}}
+        <a class="item" href="/contact">
+        <i class="smile icon"></i>
+        Contact
+      </a>
+      {{/if}}
+      {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
+      <a class="item" href="/admin">
+        <i class="user icon"></i>
+        Admin
+      </a>
+      {{/if}}
+    </div>
+</template>
