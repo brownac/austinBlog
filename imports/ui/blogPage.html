@@ -14,11 +14,14 @@
         {{/if}}
       {{/each}}
     </div>
-    <h3>Write a comment...</h3>
+    {{#if currentUser}}
+    <h2 class="ui dividing header">Write a comment...</h2>
     <form class="ui form">
       <textarea id="comment" rows="3"></textarea>
       <button class="ui submit button">Submit</button>
     </form>
+    {{else}} <h2 class="ui dividing header">You have to be logged in to post comments!</h2>
+    {{/if}}
     {{#each posts}}
     {{#each comment}}
       <h3>On {{commentedAt}}, {{commenter}} wrote:</h3>

@@ -17,11 +17,6 @@ Template.Contacts.helpers({
   }
 });
 
-Template.AdminPage.helpers({
-  allUsers(){ return Meteor.users.find({}); },
-  email(){ return this.emails[0].address; }
-});
-
 Template.AdminPage.events({
     'submit .ui.form'(event) {
         event.preventDefault();
