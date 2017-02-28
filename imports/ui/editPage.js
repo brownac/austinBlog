@@ -16,7 +16,8 @@ Template.EditPage.events({
   'submit .ui.form'(event){
     event.preventDefault();
     var content = $("#edit").val();
-    Meteor.call("editPost", this._id, content);
+    var title = $("#title").val();
+    Meteor.call("editPost", this._id, content, title);
     Router.go("/posts/"+this._id);
   }
 });

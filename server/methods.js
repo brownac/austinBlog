@@ -16,10 +16,11 @@ Meteor.methods({
       createdAt : today
     });
   },
-  editPost(id, text){
+  editPost(id, text, title){
     Posts.update(id, {
       $set: {
-        content : text
+        content : text,
+        title : title
       }
     });
   },
