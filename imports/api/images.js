@@ -1,15 +1,16 @@
-var createThumb = (fileObj,readStream,writeStream)=>{
-  var size = '450';
-  gm(readStream).autoOrient().resize(size, size + '^').gravity('Center').extent(size, size).stream('PNG').pipe(writeStream);
-}
-
-var imageStore = new FS.Store.GridFS("images", {
-  chunkSize: 2048*2048,  // optional, default GridFS chunk size in bytes (can be overridden per file).
-  transformWrite : createThumb
+var imageStore = new FS.Store.S3("uploads", {
+  accessKeyId: Meteor.settings.accessKeyId, 
+  secretAccessKey: Meteor.settings.secretAccessKey,
+  bucket: Meteor.settings.bucket 
 });
 
-var Images = new FS.Collection("images", {
-  stores: [imageStore]
+var Images = new FS.Collection("uploads", {
+  stores: [imageStore],
+  filter: {
+      allow: {
+        contentTypes: ['image/*']
+      }
+    }
 });
 
 Images.allow({
