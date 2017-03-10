@@ -1,0 +1,8 @@
+<template name="AllPosts">
+	<div class="ui container">
+		{{#each posts}}
+		    <h1><a href="/posts/{{_id}}">{{createdAt}} - {{title}}</a></h1>
+		    <pre><p>{{content}}</p></pre>
+		{{/each}}
+	</div>
+</template>
