@@ -13,7 +13,8 @@ Meteor.methods({
     Posts.insert({
       content : content,
       title : title,
-      createdAt : today
+      createdAt : today,
+      likes: 0
     });
   },
   editPost(id, text, title){
@@ -38,6 +39,13 @@ Meteor.methods({
       }
     });
   },
+  /**likePost(id){
+    Posts.update(id, {
+      $set: {
+        likes: likes + 1
+      }
+    });
+  },**/
   contact(first, last, email, subject){
     var now = new Date();
     var today = moment(now).format('MM/DD/YYYY');

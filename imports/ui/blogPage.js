@@ -27,4 +27,11 @@ Template.BlogPage.events({
     Meteor.call("submitComment", this._id, comment);
     $("#comment").val("");
   }
-})
+  /**'click .like'(){
+    Meteor.call("likePost", this._id);
+  }**/
+});
+
+Template.BlogPage.rendered = function () {
+    $('.shape').shape();
+}

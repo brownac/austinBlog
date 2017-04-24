@@ -28,16 +28,18 @@ Template.AdminPage.events({
     },
 
     'change #file'(event) {
-      var file = event.target.files[0];
+      var files = event.target.files;
       var today = new Date();
       var now = moment(today).format('MM/DD/YYYY');
-      var fileObj = new FS.File(file);
-      fileObj.metadata = { createdAt : now };
-      Images.insert(fileObj, (err) => {
+      for(var i = 0, ln = files.length; i < ln; i++){
+        var fileObj = new FS.File(files[i]);
+        fileObj.metadata = { createdAt : now };
+        Images.insert(fileObj, (err) => {
         // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
         if(err){ console.log(err); }
         else { toastr.success("Image uploaded!", "Woo!"); }
       });
+      }
       //Meteor.call("uploadImage", file);
   },
 
