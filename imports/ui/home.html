@@ -1,12 +1,9 @@
 <template name="HomePage">
   <div class="ui container">
     <!-- SideBar -->
-    <div class="ui one column center aligned grid">
-      {{> loginButtons}}
-    </div>
     <h1>Welcome to my blog! Check out my main website <a href="http://austincbrown.com" target="_blank">here</a>.</h1>
     {{#if $not currentUser}}
-      <p>Sign in or create an account above to leave comments or get in contact with me.</p>
+      <p>Sign in or create an account <a href="/user/login">here</a> to leave comments or get in contact with me.</p>
     {{/if}}
     {{#each posts}}
     <div class="ui grid">

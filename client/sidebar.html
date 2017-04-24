@@ -4,30 +4,48 @@
       <i class="list layout icon"></i>
     </button>
   </div>
-  <div class="ui left demo vertical inverted sidebar labeled icon menu">
-      <a class="item" href="/">
-        <i class="home icon"></i>
-        Home
-      </a>
-      <a class="item" href="/about">
-        <i class="block layout icon"></i>
-        About
-      </a>
-      <a class="item" href="/posts">
-        <i class="write square icon"></i>
-        All Posts
-      </a>
-      {{#if currentUser}}
-        <a class="item" href="/contact">
-        <i class="smile icon"></i>
-        Contact
-      </a>
-      {{/if}}
-      {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
-      <a class="item" href="/admin">
-        <i class="user icon"></i>
-        Admin
-      </a>
-      {{/if}}
-    </div>
+  <div class="ui left vertical green inverted sidebar labeled icon menu">
+    {{> sidebarContents}}
+  </div>
+</template>
+
+
+<!-- sidebar contents -->
+<template name="sidebarContents">
+  <a class="item" href="/">
+    <i class="home icon"></i>
+    Home
+  </a>
+  <a class="item" href="/about">
+    <i class="block layout icon"></i>
+    About
+  </a>
+  <a class="item" href="/posts">
+    <i class="write square icon"></i>
+    All Posts
+  </a>
+
+  {{#if currentUser}}
+  <a class="item" href="/contact">
+    <i class="smile icon"></i>
+    Contact
+  </a>
+  <a class="item signOut" href="#">
+    <i class="sign out icon"></i>
+    Logout
+  </a>
+
+  {{else}}
+  <a href="/user/login" class="item">
+    <i class="sign in icon"></i>
+    Login
+  </a>
+  {{/if}}
+
+  {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
+  <a class="item" href="/admin">
+    <i class="user icon"></i>
+    Admin
+  </a>
+  {{/if}}
 </template>
