@@ -3,6 +3,7 @@ import {Sparkpost} from 'meteor/agoldman:sparkpost-mail'
 import Posts from '../imports/api/posts'
 import Images from '../imports/api/images'
 import Contacts from '../imports/api/contacts'
+import Profiles from '../imports/api/profiles'
 import {WebApp} from 'meteor/webapp'
 
 Meteor.startup(() => {
@@ -20,4 +21,8 @@ Meteor.publish("images",()=>{
 
 Meteor.publish("contacts", ()=>{
   return Contacts.find();
+});
+
+Meteor.publish("profiles", ()=>{
+    return Profiles.find();
 });

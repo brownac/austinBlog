@@ -35,7 +35,7 @@ Template.CreateAccount.events({
         }
         else
         {
-          Router.go('/');
+          Router.go('/user/create-account/more-info');
         }
       });
     }

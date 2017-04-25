@@ -2,6 +2,8 @@ import { Template } from 'meteor/templating'
 
 import Posts from '../api/posts'
 import Images from '../api/images'
+import Profiles from '../api/profiles'
+
 
 import './blogPage.html'
 
@@ -14,7 +16,11 @@ Template.BlogPage.helpers({
   },
   images(){
     return Images.find();
-  }
+  },
+    profiles()
+    {
+      return Profiles.find({email: Meteor.user().emails[0].address});
+    }
 });
 
 Template.BlogPage.events({

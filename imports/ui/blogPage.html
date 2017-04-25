@@ -14,8 +14,8 @@
         {{/if}}
       {{/each}}
     </div>
-    {{#if currentUser}}
-    <!--<button class="ui button like">Like</button> <p>{{likes}}</p>-->
+
+      {{#if currentUser}}
     <h2 class="ui dividing header">Write a comment...</h2>
     <form class="ui form">
       <textarea id="comment" rows="3"></textarea>
@@ -23,11 +23,31 @@
     </form>
     {{else}} <h2 class="ui dividing header">You have to be logged in to post comments!</h2>
     {{/if}}
+
     {{#each posts}}
-    {{#each comment}}
-      <h3>On {{commentedAt}}, {{commenter}} wrote:</h3>
-      <p>{{comment}}</p>
-    {{/each}}
+        {{#each comment}}
+            {{#each profiles}}
+                {{#if $eq email ../commenter}}
+                    {{#each images}}
+                        {{#if $eq metadata.belongsTo ../email}}
+                            <div class="comment">
+                                <div class="ui grid">
+                                    <div class="one wide column">
+                                        <img src="{{this.url}}" alt="" class="ui avatar image">
+                                    </div>
+                                    <div class="ten wide column name">
+                                        <h3>{{../firstName}} {{../lastName}}</h3>
+                                    </div>
+                                </div>
+                                <pre>{{../../comment}}</pre>
+                                <i>{{../../commentedAt}}</i>
+                            </div>
+                        {{/if}}
+                    {{/each}}
+
+                {{/if}}
+            {{/each}}
+        {{/each}}
     {{/each}}
   </div>
 </template>

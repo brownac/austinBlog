@@ -1,0 +1,30 @@
+<template name="MoreInfo">
+    <div class="ui container">
+        <div class="ui ten column centered grid">
+            <div class="row"><h1>Thanks for signing up! Let's just get a little more info from you.</h1></div>
+            <div class="row">
+                <form class="ui form moreInfo">
+                    <div class="field">
+                        <label>First Name</label>
+                        <input type="text" name="firstName" placeholder="First">
+                    </div>
+                    <div class="field">
+                        <label>Last Name</label>
+                        <input type="text" name="lastName" placeholder="Last">
+                    </div>
+                    <div class="field">
+                        <label>E-Mail</label>
+                        <input type="email" name="email" value="{{currentUser.emails.[0].address}}">
+                    </div>
+                    <div class="field">
+                        <label for="file-input"> Upload a profile image
+                            <img src="https://semantic-ui.com/images/wireframe/image.png" id="profileImage" class="ui medium image">
+                        </label>
+                        <input type="file" id="file-input" name="profileImage">
+                    </div>
+                    <button class="ui submit button">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
