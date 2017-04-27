@@ -48,7 +48,21 @@ Template.AdminPage.events({
   }
 });
 
-Template.AdminPage.rendered = function(){
-  $('.ui.sidebar').sidebar('hide')
-  ;
+Template.AdminPage.rendered = function()
+{
+  $('.ui.sidebar').sidebar('hide');
+  if (Meteor.user() == null)
+  {
+    toastr.warning("You're not allowed there!", "Sorry!");
+    Router.go("/");
+  }
+  else if (Meteor.user().emails[0].address != "blog@austincbrown.com")
+  {
+    toastr.warning("You're not allowed there!", "Sorry!");
+    Router.go("/");
+  }
+  else
+  {
+    Router.go("/admin");
+  }
 }
