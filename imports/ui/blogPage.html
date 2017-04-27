@@ -6,16 +6,16 @@
     {{/each}}
     <div class="ui grid">
       {{#each images}}
-        {{#if $eq metadata.createdAt ../createdAt}}
-          <div class="ui eight wide column">
-              <a href="{{this.url}}"><img src="{{this.url}}" alt="" class="thumbnail" /></a>
-              {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}<button class="ui red button delete">Delete</button>{{/if}}
-          </div>
-        {{/if}}
+      {{#if $eq metadata.createdAt ../createdAt}}
+      <div class="ui eight wide column">
+        <a href="{{this.url}}"><img src="{{this.url}}" alt="" class="thumbnail" /></a>
+        {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}<button class="ui red button delete">Delete</button>{{/if}}
+      </div>
+      {{/if}}
       {{/each}}
     </div>
 
-      {{#if currentUser}}
+    {{#if currentUser}}
     <h2 class="ui dividing header">Write a comment...</h2>
     <form class="ui form">
       <textarea id="comment" rows="3"></textarea>
@@ -24,30 +24,30 @@
     {{else}} <h2 class="ui dividing header">You have to be logged in to post comments!</h2>
     {{/if}}
 
+    <!-- comments section -->
+    <div class="ui grid">
     {{#each posts}}
-        {{#each comment}}
-            {{#each profiles}}
-                {{#if $eq email ../commenter}}
-                    {{#each images}}
-                        {{#if $eq metadata.belongsTo ../email}}
-                            <div class="comment">
-                                <div class="ui grid">
-                                    <div class="one wide column">
-                                        <img src="{{this.url}}" alt="" class="ui avatar image">
-                                    </div>
-                                    <div class="ten wide column name">
-                                        <h3>{{../firstName}} {{../lastName}}</h3>
-                                    </div>
-                                </div>
-                                <pre>{{../../comment}}</pre>
-                                <i>{{../../commentedAt}}</i>
-                            </div>
-                        {{/if}}
-                    {{/each}}
-
-                {{/if}}
+      {{#each comment}}
+      <div class="row comment">
+        {{#each profiles}}
+          {{#if $eq email ../commenter}}
+            {{#each images}}
+              {{#if $eq metadata.belongsTo ../email}}
+                <div class="ui one wide column">
+                  <img src="{{this.url}}" alt="" class="ui avatar image">
+                </div>
+                <div class="ui nine wide column">
+                  <h3>{{../firstName}} {{../lastName}}</h3>
+                  <p>{{../../comment}}</p>
+                  <i>{{../../commentedAt}}</i>
+                </div>
+              {{/if}}
             {{/each}}
+          {{/if}}
         {{/each}}
+        </div>
+      {{/each}}
     {{/each}}
+    </div>
   </div>
 </template>

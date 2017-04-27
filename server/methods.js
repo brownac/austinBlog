@@ -82,5 +82,9 @@ Meteor.methods({
         lastName: last,
         email: email
     });
+  },
+  deleteProfile(id)
+  {
+    Meteor.users.remove(id);
   }
 });

@@ -19,7 +19,7 @@ Template.BlogPage.helpers({
   },
     profiles()
     {
-      return Profiles.find({email: Meteor.user().emails[0].address});
+      return Profiles.find();
     }
 });
 

@@ -21,7 +21,7 @@
     About
   </a>
   <a class="item" href="/posts">
-    <i class="write square icon"></i>
+    <i class="archive icon"></i>
     All Posts
   </a>
 
@@ -34,6 +34,11 @@
     <i class="sign out icon"></i>
     Logout
   </a>
+  <a class="item" href="/user">
+    <i class="user icon">
+    </i>
+    Your profile
+  </a>
 
   {{else}}
   <a href="/user/login" class="item">
@@ -44,7 +49,7 @@
 
   {{#if $eq currentUser.emails.[0].address "blog@austincbrown.com"}}
   <a class="item" href="/admin">
-    <i class="user icon"></i>
+    <i class="write icon"></i>
     Admin
   </a>
   {{/if}}

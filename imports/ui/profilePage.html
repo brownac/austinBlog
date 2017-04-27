@@ -1,0 +1,32 @@
+<template name="ProfilePage">
+  <div class="ui container">
+    {{#each profiles}}
+      <h1>Hey there! You're logged in as {{email}}.</h1>
+      <h2>Here are your profile details:</h2>
+      <div class="ui grid">
+
+        <div class="three wide column">
+          <div class="row profile"><h3>First Name</h3></div>
+          <div class="row profile"><h3>Last Name</h3></div>
+          <div class="row profile"><h3>E-Mail</h3></div>
+        </div>
+        <div class="nine wide column">
+          <div class="row profile"><p>{{firstName}}</p></div>
+          <div class="row profile"><p>{{lastName}}</p></div>
+          <div class="row profile"><p>{{email}}</p></div>
+        </div>
+        <div class="four wide centered column">
+          {{#each images}}
+            {{#if $eq metadata.belongsTo ../email}}
+              <img src="{{this.url}}" alt="" class="ui medium image">
+            {{/if}}
+          {{/each}}
+        </div>
+        <div class="four wide centered column">
+          <p>Want to delete your account?</p>
+          <button class="ui red button deleteAccount">Delete</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</template>
