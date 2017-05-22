@@ -1,14 +1,13 @@
 <template name="mainLayout">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <main class="ui grid">
     <div class="ui container">
       {{> SideBar}}
-    <div class="row">
       <div class="sixteen wide column">
         {{#transition in="fadeInLeft:600" out="fadeOutRight:600"}}
           {{> yield}}
         {{/transition}}
       </div>
-    </div>
     </div>
   </main>
 </template>
